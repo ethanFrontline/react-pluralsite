@@ -1,0 +1,68 @@
+component lifecycle
+-when components get loaded, first method called is
+
+componentWillMount
+  executed before initial rendering
+
+componentDidMount
+  executed Immediately after initial rendering
+
+componenetWillReceiveProps
+  When component receives new props
+
+shouldComponentUpdate
+  before rendering, after receiving new props or state
+  can return to prevent rendering
+
+componentWillUpdate
+  Before rendering, after receiving new props or state
+
+componentDidUpdate
+  after component's updates are flushed to DOM
+
+componentWillUnmount
+  immediately before removing component from DOM
+
+-----------
+When to use class vs stateless components
+**Class**
+State
+Refs
+Lifecycle method hooks
+Child functions (for performance)
+
+**Stateless**
+Everywhere else
+
+
+-----------
+Core types of components
+Container vs Presentation
+**Container**
+Little to no markup, like the "backend of the frontend"
+Often used using Redux
+Pass data and actions down
+Knows about redux
+Often stateful
+
+**Presentation** (Most components should be this type)
+Nearly all markup
+Should no have logic
+Receive data and actions via props
+Typically functional components
+
+
+
+---
+MAJOR PIECES OF A Redux CONTAINER COMPONENT
+1. Constructor.
+  here initialize state
+  bind 'this' for functions that need it
+
+2. Child functions called by render (onClickSave, onTitleChange, onClick etc)
+
+3. Render() - usually just call a child component here
+
+4. propTypes - provides propType validation
+
+5. Redux functions - mapStateToProps, mapDispatchToProps, and export default connect(mapStateToProps, mapDispatchToProps)(TitleOfComponentClass)
